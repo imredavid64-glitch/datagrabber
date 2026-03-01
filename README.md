@@ -22,9 +22,9 @@ pip3 install requests beautifulsoup4
 
 2. Configuration & Usage
 
-To build your dataset, you must configure the "Target" and the "Map" inside data_grabber.py:
+To build your dataset, configure the Target and Map inside data_grabber.py:
 
-Input Your Links: Locate the target_urls list. Replace the examples with the direct links you want to grab data from.
+Input Your Links: Locate the target_urls list inside run_grabber_engine(). Replace the examples with your direct links.
 
 target_urls = ["[https://example.com/item1](https://example.com/item1)", "[https://example.com/item2](https://example.com/item2)"]
 
@@ -44,16 +44,16 @@ python data_grabber.py
 
 The engine automatically creates a folder named grabbed_data in your project directory.
 
-For Spreadsheets: Open app_store_catalog.csv with Excel or Google Sheets.
+For Spreadsheets: Open app_store_catalog.csv (Excel/Google Sheets).
 
 For App Development: Use app_store_catalog.json for your database logic.
 
 4. Key Capabilities
 
-Identity Masking: Uses custom User-Agents to mimic real browser behavior and avoid blocks.
+Identity Masking: Uses custom User-Agents to mimic real browser behavior.
 
-Error Resilience: Built-in timeout management prevents crashes during bulk extraction.
+Error Resilience: Built-in timeout management prevents crashes.
 
-Data Building: Automatically overwrites files with the newest data to keep your app catalog current.
+Automated Updates: Overwrites files with the newest data on every run.
 
-By automating data acquisition, the Software Grabber allows you to focus on building features while it handles the heavy lifting of data construction.
+Focus on building features; let the Software Grabber handle the data construction.
