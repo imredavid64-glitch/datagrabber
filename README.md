@@ -1,16 +1,10 @@
-# datagrabber
-A logic-based engine that transforms web content into JSON/CSV databases for your app.
 Software Grabber: The Data-Building Engine
 
-The Software Grabber is a high-performance, logic-based data extraction utility designed to bridge the gap between raw web content and structured application databases. It is architected as a "Builder Engine," transforming fragmented online information into standardized JSON and CSV repositories to power your software's backend.
+The Software Grabber is a logic-based data extraction utility designed to bridge the gap between raw web content and structured application databases. It acts as a "Builder Engine," transforming fragmented online information into standardized JSON and CSV repositories to power your software's backend.
 
-Core Architecture
+1. Installation Guide
 
-The system uses a modular "Selector Mapping" logic. By defining a "Site Map" via CSS selectors, developers can pinpoint exactly which data points to prioritize—such as app names, pricing, or ratings. This ensures a clean, consistent dataset ready for immediate integration.
-
-Installation Guide
-
-To set up the environment, run the following commands in your terminal:
+Set up your environment by running these commands in your terminal:
 
 Windows:
 
@@ -26,22 +20,40 @@ source venv/bin/activate
 pip3 install requests beautifulsoup4
 
 
-How to Use
+2. Configuration & Usage
 
-Define Target: Update the target_urls list in the script with the web pages you wish to grab.
+To build your dataset, you must configure the "Target" and the "Map" inside data_grabber.py:
 
-Map Selectors: Update the app_store_map dictionary. Use your browser's "Inspect Element" tool to find the CSS classes (e.g., .product-title) for the data you want.
+Input Your Links: Locate the target_urls list. Replace the examples with the direct links you want to grab data from.
 
-Run Engine: Execute python data_grabber.py.
+target_urls = ["[https://example.com/item1](https://example.com/item1)", "[https://example.com/item2](https://example.com/item2)"]
 
-Access Data: The engine will create a grabbed_data folder containing app_store_catalog.json and .csv files.
 
-Key Capabilities
+Map Selectors: Update the app_store_map dictionary. Right-click a webpage element -> Inspect to find the CSS class or ID.
 
-Identity Masking: Uses custom User-Agents to mimic real browser behavior.
+For <h1 class="title">, use "name": "h1.title".
+
+For <div id="price">, use "price": "#price".
+
+Run the Engine: Execute the script:
+
+python data_grabber.py
+
+
+3. Accessing Your Data
+
+The engine automatically creates a folder named grabbed_data in your project directory.
+
+For Spreadsheets: Open app_store_catalog.csv with Excel or Google Sheets.
+
+For App Development: Use app_store_catalog.json for your database logic.
+
+4. Key Capabilities
+
+Identity Masking: Uses custom User-Agents to mimic real browser behavior and avoid blocks.
 
 Error Resilience: Built-in timeout management prevents crashes during bulk extraction.
 
-Database Foundation: The generated files serve as a ready-to-use database for web, mobile, or desktop applications.
+Data Building: Automatically overwrites files with the newest data to keep your app catalog current.
 
 By automating data acquisition, the Software Grabber allows you to focus on building features while it handles the heavy lifting of data construction.
